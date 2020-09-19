@@ -47,7 +47,7 @@ app.delete('/api/persons/:id', (req, res, next) => {
       } else {
         return res
           .status(404)
-          .send({ error: "Person's information is no longer on the server" });
+          .send({ error: 'Person\'s information is no longer on the server' });
       }
     })
     .catch((error) => next(error));
@@ -86,7 +86,7 @@ app.put('/api/persons/:id', (req, res, next) => {
       } else {
         return res
           .status(404)
-          .send({ error: "Person's information is no longer on the server" });
+          .send({ error: 'Person\'s information is no longer on the server' });
       }
     })
     .catch((error) => next(error));
@@ -124,6 +124,7 @@ const errorHandler = (error, req, res, next) => {
   }
 
   res.status(500).send({ error: error.message });
+  next(error);
 };
 
 app.use(errorHandler);
